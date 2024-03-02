@@ -1,0 +1,108 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-size: 50px;
+}
+
+.scene {
+  width: 10em;
+  height: 5em;
+  padding: 30px;
+  position: relative;
+  perspective: 400px;
+  border: 1px solid red;
+  perspective-origin: 50% 30%;
+}
+
+.plate {
+  bottom: 0;
+  width: 3em;
+  height: 3em;
+  position: absolute;
+  transform-style: preserve-3d;
+  background-color: rgb(165, 84, 240);
+  box-shadow: 0 0 1.5em #6506bd inset;
+}
+
+.ballShadow {
+  position: absolute;
+  width: 3em;
+  height: 3em;
+  background-image: radial-gradient(#0005, #0000 25%);
+}
+
+.one {
+  animation: animateShadow1 3s linear infinite;
+}
+
+.two {
+  animation: animateShadow2 3s linear infinite;
+}
+
+@keyframes animateShadow1 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  10%,
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes animateShadow2 {
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  0%,
+  40%,
+  60%,
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.right {
+  right: 0;
+  transform: rotateX(85deg) rotateY(-18deg);
+}
+
+.left {
+  transform: rotateX(85deg) rotateY(18deg);
+}
+
+.ball {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  position: absolute;
+  background-image: radial-gradient(circle at top, lightblue, #000);
+  transform-style: preserve-3d;
+  animation: ballAnimate 1.5s infinite alternate;
+}
+
+@keyframes ballAnimate {
+  0% {
+    bottom: 1.5em;
+    left: 1.75em;
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    bottom: 3em;
+    left: 5em;
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    bottom: 1.5em;
+    left: 9.25em;
+    animation-timing-function: ease-out;
+  }
+}
